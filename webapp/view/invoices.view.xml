@@ -1,0 +1,108 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.erpERP.controller.invoices"
+	xmlns:html="http://www.w3.org/1999/xhtml"  xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Page title="Manage Invoices" showHeader="true" showNavButton="true" enableScrolling="true" navButtonPress="onPageBack">
+		<content>
+			<Panel width="auto" class="sapUiResponsiveMargin">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<Title text="Manage your invoices"/>
+						<ToolbarSpacer/>
+							<SearchField width="20%" search="onSearch" liveChange="onSearch" placeholder="Order ID"	 
+class="sapUiSmallMargin" />
+
+<Button text="Create New Invoice" press="add" icon="sap-icon://add" />
+<Button text="Modify Invoice" press="Edit" icon="sap-icon://edit" />
+				
+						
+						
+					</Toolbar>
+				</headerToolbar>
+				<Table id="invoices" class="sapUiSizeCompact" noDataText="No Data" keyboardMode="Edit" items="{invModel>/data}">
+					<columns>
+					    
+					    	<Column width="4rem" hAlign="Center">
+							<Text text="ProductID"/>
+						</Column>
+						<Column width="4rem" hAlign="Center">
+							<Text text="ProductName"/>
+						</Column>
+						<Column width="4rem" hAlign="Center">
+							<Text text="UnitPrice"/>
+						</Column>
+						<Column width="4rem" hAlign="Center">
+							<Text text="Quantity "/>
+						</Column>
+						<Column width="4rem" hAlign="Center">
+							<Text text="Discount "/>
+						</Column>
+					    
+					    
+					<!--	<Column width="4rem" hAlign="Center">
+							<Text text="ShipName "/>
+						</Column>
+						<Column width="4rem" hAlign="Center">
+							<Text text="ShipAddress"/>
+						</Column>
+						<Column width="4rem" hAlign="Right">
+							<Text text="ShipCity"/>
+						</Column>-->
+					<!--
+						<Column width="4rem" hAlign="Center">
+							<Text text="ShipPostalCode"/>
+						</Column>-->
+						<Column width="4rem" hAlign="Center">
+							<Text text="CustomerID"/>
+						</Column>
+						<Column width="6rem" hAlign="Center">
+							<Text text="CustomerName"/>
+						</Column>
+						<Column width="6rem" hAlign="Center">
+							<Text text="Salesperson"/>
+						</Column>
+						<Column width="4rem" hAlign="Center">
+							<Text text="OrderID"/>
+						</Column>
+					<!--	<Column width="4rem" hAlign="Center">
+							<Text text="OrderDate"/>
+						</Column>-->
+					
+					
+						<Column width="1rem">
+							<Label text="" class="sapUiTinyMarginTop"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem press="onRowPress">
+							<cells>
+								<Input value="{invModel>ProductID}" editable="false"/>
+								<Input value="{invModel>ProductName}" editable="false"/>
+								<Input value="{invModel>UnitPrice}" editable="false"/>
+								<Input value="{invModel>Quantity}"  editable="false"/>
+								<Input value="{invModel>Discount}" editable="false"/>
+								
+								
+								
+							<!--	
+								<Input value="{invModel>ShipName}"/>
+								<Input value="{invModel>ShipAddress}"/>
+								<Input value="{invModel>ShipCity}"/>
+							-->
+							
+								<Input value="{invModel>CustomerID}" editable="false"/>
+								<Input value="{invModel>CustomerName}"  editable="false"/>
+								<Input value="{invModel>Salesperson}"  editable="false"/>
+									<Input value="{invModel>OrderID}" editable="false"/>
+							
+							
+							
+								<HBox>
+									<Button icon="sap-icon://delete" press="onDeleteBiderRow" app:rowKey="{key}"/>
+								</HBox>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>

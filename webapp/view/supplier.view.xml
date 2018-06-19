@@ -1,0 +1,97 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.erpERP.controller.supplier"
+	xmlns:html="http://www.w3.org/1999/xhtml"   xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+			<Page title="Manage Suppliers Details"  showHeader="true" showNavButton="true" enableScrolling="true" navButtonPress="onPageBack">
+				<content>
+					<Panel width="auto" class="sapUiResponsiveMargin">
+				
+				<headerToolbar>
+			<Toolbar height="3rem">
+				<Title text="Manage your Suppliers"/>
+				<ToolbarSpacer/>
+					<SearchField width="20%" search="onSearch" liveChange="onSearch" placeholder="Supplier ID"	 
+class="sapUiSmallMargin" />
+
+<Button text="Add New Supplier" press="add" icon="sap-icon://add" />
+<Button text="Modify Supplier" press="Edit" icon="sap-icon://edit" />
+				
+				
+			
+			</Toolbar>
+		</headerToolbar>
+				
+				
+				
+		<Table id="supplier" 	   class="sapUiSizeCompact" noDataText="No Data" keyboardMode="Edit" items="{supModel>/data}">
+		
+			<columns>
+				<Column width="4rem" hAlign="Center">
+					<Text text="Supplier ID"/>
+				</Column>
+				<Column width="4rem" hAlign="Center">
+					<Text text="Company Name"/>
+				</Column>
+				<Column width="4rem" hAlign="Right">
+					<Text text="Contact Name"/>
+				</Column>
+				<Column width="4rem" hAlign="Center">
+					<Text text="Contact Title"/>
+				</Column>
+				<Column width="4rem" hAlign="Center">
+					<Text text="Address"/>
+				</Column>
+				<Column width="4rem" hAlign="Center">
+					<Text text="City"/>
+				</Column>
+				<Column width="4rem" hAlign="Center">
+					<Text text="PostalCode"/>
+				</Column>
+				
+					<Column width="4rem" hAlign="Center">
+					<Text text="Country"/>
+				</Column>
+				
+					<Column width="4rem" hAlign="Center">
+					<Text text="Phone"/>
+				</Column>
+				<Column width="1rem">
+					<Label text="" class="sapUiTinyMarginTop"/>
+				</Column>
+				
+			</columns>
+			<items>
+				<ColumnListItem press="onRowPress" >
+					<cells>
+						<!-- <Text text="{Zbider}" /> -->
+						
+						<Input value="{supModel>SupplierID}" editable="false" />
+						<Input value="{supModel>CompanyName}" editable="false"/>
+						<Input value="{supModel>ContactName}" editable="false"/>
+						<Input value="{supModel>ContactTitle}" editable="false"/>
+						<Input value="{supModel>Address}" editable="false"/>
+						<Input value="{supModel>City}" editable="false"/>
+							<Input value="{supModel>PostalCode}" editable="false"/>
+								<Input value="{supModel>Country}" editable="false"/>
+										<Input value="{supModel>Phone}" editable="false"/>
+						
+						<HBox>
+							<Button icon="sap-icon://delete" press="onDeleteBiderRow" app:rowKey="{supModel>key}"/>
+						</HBox>
+						
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		
+		
+		
+	</Panel>			
+					
+					
+					
+					
+					
+				</content>
+			</Page>
+	
+</mvc:View>

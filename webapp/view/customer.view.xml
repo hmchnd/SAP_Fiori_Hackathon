@@ -1,0 +1,96 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.erpERP.controller.customer"
+	xmlns:html="http://www.w3.org/1999/xhtml"   xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	
+			<Page title="Manage Customer Details"  showHeader="true" showNavButton="true" enableScrolling="true" navButtonPress="onPageBack">
+				<content>
+			
+			
+			<Panel width="auto" class="sapUiResponsiveMargin">
+				
+				<headerToolbar>
+			<Toolbar height="3rem">
+				<Title text="Manage your customers"/>
+				<ToolbarSpacer/>
+				<SearchField width="20%" search="onSearch" liveChange="onSearch" placeholder="Customer ID"	 
+class="sapUiSmallMargin" />
+
+<Button text="Add New Customer" press="addCustomer" icon="sap-icon://add" />
+<Button text="Modify Customer"  id="edit"  press="EditCustomer" icon="sap-icon://edit" />
+<Button text="Save Changes" id="save"  press="saveCustomer" visible="false" icon="sap-icon://save" />
+			</Toolbar>
+		</headerToolbar>
+				
+				
+				
+		<Table id="customer"    class="sapUiSizeCompact" noDataText="No Data" keyboardMode="Edit" items="{/data}">
+		
+			<columns>
+				<Column width="4rem" hAlign="Center">
+					<Text text="Customer ID"/>
+				</Column>
+				<Column width="4rem" hAlign="Center">
+					<Text text="Company Name"/>
+				</Column>
+				<Column width="4rem" hAlign="Right">
+					<Text text="Contact Name"/>
+				</Column>
+				<Column width="4rem" hAlign="Center">
+					<Text text="Contact Title"/>
+				</Column>
+				<Column width="4rem" hAlign="Center">
+					<Text text="Address"/>
+				</Column>
+				<Column width="4rem" hAlign="Center">
+					<Text text="City"/>
+				</Column>
+				<Column width="4rem" hAlign="Center">
+					<Text text="PostalCode"/>
+				</Column>
+				
+					<Column width="4rem" hAlign="Center">
+					<Text text="Country"/>
+				</Column>
+				
+					<Column width="4rem" hAlign="Center">
+					<Text text="Phone"/>
+				</Column>
+				<Column width="1rem">
+					<Label text="" class="sapUiTinyMarginTop"/>
+				</Column>
+				
+			</columns>
+			<items>
+				<ColumnListItem press="onRowPress" >
+					<cells>
+						<!-- <Text text="{Zbider}" /> -->
+						
+						<Input value="{CustomerID}"  editable="false"/>
+						<Input value="{CompanyName}"  editable="false"/>
+						<Input value="{ContactName}" editable="false"/>
+						<Input value="{ContactTitle}" editable="false"/>
+						<Input value="{Address}" editable="false"/>
+						<Input value="{City}" editable="false"/>
+							<Input value="{PostalCode}" editable="false"/>
+								<Input value="{Country}" editable="false"/>
+										<Input value="{Phone}" editable="false"/>
+						
+						<HBox>
+							<Button icon="sap-icon://delete" press="onDeleteBiderRow" app:rowKey="{key}"/>
+						</HBox>
+						
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		
+		
+		
+	</Panel>		
+					
+					
+					
+					
+				</content>
+			</Page>
+	
+</mvc:View>

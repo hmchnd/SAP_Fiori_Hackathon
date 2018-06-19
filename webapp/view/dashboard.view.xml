@@ -1,0 +1,121 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.erpERP.controller.dashboard" xmlns:l="sap.ui.layout"
+	xmlns:uxap="sap.uxap" xmlns:viz="sap.viz.ui5.controls" xmlns:C="sap.suite.ui.commons"  xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="true" enableScrolling="true" class="mainpage">
+		<customHeader>
+			<Bar class="clss_bar">
+				<contentMiddle>
+					<Title text="Dashboard" class="titlemainclass"></Title>
+				</contentMiddle>
+				<contentRight>
+					
+						<Button press="onSafty" tooltip="Warning for product out of stock " icon="sap-icon://message-warning"/>
+					<MenuButton icon="sap-icon://account">
+						<menu>
+							<Menu itemSelected="onMenuAction">
+								<items>
+									<MenuItem text="User Profile"/>
+									<MenuItem text="Log Out"/>
+								</items>
+							</Menu>
+						</menu>
+					</MenuButton>
+				
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<uxap:ObjectPageLayout id="invoiceObjectPageLayout" showTitleInHeaderContent="true" enableLazyLoading="true">
+				<uxap:headerTitle>
+					<uxap:ObjectPageHeader objectImageURI="./image/1504331408174.jpg" objectTitle="Denise Smith"
+						objectImageShape="Circle" objectImageAlt="Denise Smith" objectSubtitle="Sales Manager" isObjectIconAlwaysVisible="false"
+						isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false"></uxap:ObjectPageHeader>
+				</uxap:headerTitle>
+				<uxap:headerContent>
+					<l:VerticalLayout></l:VerticalLayout>
+					<l:VerticalLayout>
+					<!--	<Label text="Total Supplier"/>
+						<Label text="Total Products"/>
+						<Label text="Total Invoices"/>-->
+					</l:VerticalLayout>
+					<l:VerticalLayout>
+					<!--	<ObjectStatus state="Success" text="234"/>
+						<ObjectStatus state="Success" text="45"/>
+						<ObjectStatus state="Success" text="33"/>-->
+					</l:VerticalLayout>
+					<l:VerticalLayout>
+						<ObjectStatus state="Warning" text="San Jose, USA"/>
+					</l:VerticalLayout>
+				</uxap:headerContent>
+				<uxap:sections>
+					<uxap:ObjectPageSection showTitle="false">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection title="Customers">
+								<uxap:blocks>
+									<StandardTile icon="sap-icon://customer" number="20" numberUnit="Customers" title="Manage Customers" info="Manage Customer Details"
+										infoState="Success"  press="onPressCustomer"/>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+					<uxap:ObjectPageSection showTitle="false">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection title="Suppliers">
+								<uxap:blocks>
+									<StandardTile icon="sap-icon://supplier" number="29" numberUnit="Total Suppliers" title="Manage suppliers" info="Manage Supplier Details"
+										infoState="Success" press="onPressSupplier"/>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+					<uxap:ObjectPageSection showTitle="false">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection title="Products">
+								<uxap:blocks>
+									<StandardTile icon="sap-icon://product" number="20" numberUnit="Total Products" title="Manage products" info="Manage product Details"
+										infoState="Success"  press="onPressProducts"/>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+					<uxap:ObjectPageSection showTitle="false">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection title="Invoices">
+								<uxap:blocks>
+								<StandardTile icon="sap-icon://monitor-payments" number="77" numberUnit="Total Invoices" title="Manage Invoices" info="Manage Invoice Details"
+										infoState="Success"   press="onPressInvoices"/>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+					<uxap:ObjectPageSection showTitle="false">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection title="Monthly Progress Report">
+								<uxap:blocks>
+									<l:Splitter width="90%" height="90%"  class="sapUiResponsiveMargin">
+						<l:contentAreas>
+							<C:ChartContainer id="chartContainer" showFullScreen="true" showPersonalization="false" autoAdjustHeight="false" showLegend="true"
+								title="Monthly Sales Report">
+								<C:content>
+									
+									
+								<C:ChartContainerContent icon="sap-icon://line-chart" title="Line Chart">
+									<C:content>
+									<viz:VizFrame id="idcolumn" width="100%" vizType='bullet' ></viz:VizFrame>
+										</C:content>
+									</C:ChartContainerContent>
+								</C:content>
+							</C:ChartContainer>
+				
+				
+						</l:contentAreas>
+					</l:Splitter>
+			
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+				</uxap:sections>
+			</uxap:ObjectPageLayout>
+		</content>
+	</Page>
+</mvc:View>
