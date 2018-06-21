@@ -1,0 +1,77 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.erpERP.controller.products"
+	xmlns:html="http://www.w3.org/1999/xhtml"  xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Page title="Manage Products" showHeader="true" showNavButton="true" enableScrolling="true" navButtonPress="onPageBack">
+		<content>
+			<Panel width="auto" class="sapUiResponsiveMargin">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<Title text="Manage your products"/>
+						<ToolbarSpacer/>
+						<SearchField width="20%" search="onSearch" liveChange="onSearch" placeholder="Product ID" class="sapUiSmallMargin"/>
+						<Button text="Add New Product" press="add" icon="sap-icon://add"/>
+						<Button text="Modify Product" press="Edit" icon="sap-icon://edit"/>
+					</Toolbar>
+				</headerToolbar>
+				<Table id="products" class="sapUiSizeCompact" noDataText="No Data" keyboardMode="Edit" items="{prodModel>/data}">
+					<columns>
+						<Column width="4rem" hAlign="Center">
+							<Text text="ProductID"/>
+						</Column>
+						<Column width="9rem" hAlign="Center">
+							<Text text="Product Name"/>
+						</Column>
+						<Column width="4rem" hAlign="Right">
+							<Text text="SupplierID"/>
+						</Column>
+						<Column width="4rem" hAlign="Center">
+							<Text text="Category ID"/>
+						</Column>
+						<Column width="7rem" hAlign="Center">
+							<Text text="Quantity Per Unit"/>
+						</Column>
+						<Column width="4rem" hAlign="Center">
+							<Text text="UnitPrice"/>
+						</Column>
+						<Column width="4rem" hAlign="Center">
+							<Text text="UnitsInStock"/>
+						</Column>
+						<Column width="4rem" hAlign="Center">
+							<Text text="UnitsOnOrder"/>
+						</Column>
+						<Column width="4rem" hAlign="Center">
+							<Text text="ReorderLevel"/>
+						</Column>
+						<Column width="1rem">
+							<Label text="" class="sapUiTinyMarginTop"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem press="onRowPress">
+							<cells>
+								<!-- <Text text="{Zbider}" /> -->
+								<Input value="{prodModel>ProductID}"  editable="false"/>
+								<Input value="{prodModel>ProductName}" editable="false"/>
+								<Input value="{prodModel>SupplierID}" editable="false"/>
+								<Input value="{prodModel>CategoryID}" editable="false"/>
+								<Input value="{prodModel>QuantityPerUnit}" editable="false"/>
+								<Input value="{prodModel>UnitPrice}" editable="false"/>
+								<HBox>
+									<Input value="{prodModel>UnitsInStock}" editable="false"/>
+									<core:Icon src="sap-icon://alert" color="red" tooltip="out of stock"
+										visible="{path:'prodModel>UnitsInStock',formatter:'.Status_text'}"/>
+								</HBox>
+								<!--	<ObjectStatus text="{prodModel>UnitsInStock}" 
+								state="{path:'prodModel>UnitsInStock',formatter:'.Status_text'}"/>-->
+								<Input value="{prodModel>UnitsOnOrder}"  editable="false"/>
+								<Input value="{prodModel>ReorderLevel}" editable="false"/>
+								<HBox>
+									<Button icon="sap-icon://delete" press="onDeleteBiderRow" app:rowKey="{key}"/>
+								</HBox>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>

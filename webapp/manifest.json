@@ -1,0 +1,139 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "sap.erpERP",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "sap.erpERP.view.app",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"targetsClass": "sap.m.routing.Targets",
+				"viewPath": "sap.erpERP.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"viewType": "XML",
+				"clearTarget": false
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "dashboard",
+					"target": "dashboard"
+				},
+				{
+					"pattern": "/customer",
+					"name": "customer",
+					"target": "customer"
+				},
+				{
+					"pattern": "/supplier",
+					"name": "supplier",
+					"target": "supplier"
+				},
+				{
+					"pattern": "/products",
+					"name": "products",
+					"target": "products"
+				},
+				{
+					"pattern": "/invoices",
+					"name": "invoices",
+					"target": "invoices"
+				}
+			],
+			"targets": {
+				"dashboard": {
+					"viewName": "dashboard",
+					"viewId": "dashboard"
+				},
+				"customer": {
+					"viewName": "customer",
+					"viewId": "customer"
+				},
+				"supplier": {
+					"viewName": "supplier",
+					"viewId": "supplier"
+				},
+				"products": {
+					"viewName": "products",
+					"viewId": "products"
+				},
+				"invoices": {
+					"viewName": "invoices",
+					"viewId": "invoices"
+				}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.erpERP.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}
